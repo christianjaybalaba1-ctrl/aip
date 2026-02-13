@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You 💌</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    text-align: center;
+    background: linear-gradient(135deg, #ff9a9e, #fecfef);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.screen { display: none; width: 100%; }
+.active { display: block; }
+
+.envelope {
+    font-size: 80px;
+    cursor: pointer;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.bouquet {
+    position: relative;
+    width: 90%;
+    max-width: 250px;
+    height: 200px;
+    margin: auto;
+}
+
+.tulip { position: absolute; font-size: 40px; }
+
+button, .link-btn {
+    padding: 10px 20px;
+    border-radius: 25px;
+    background: #ff4d6d;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 15px;
+    border: none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- SCREEN 1 -->
+<div id="s1" class="screen active">
+    <div class="envelope" onclick="nextScreen(2)">💌</div>
+    <p>Tap to open your surprise 💖</p>
+</div>
+
+<!-- SCREEN 2 -->
+<div id="s2" class="screen">
+    <h2>Flower for You 🌷✨</h2>
+
+    <div class="bouquet">
+        <div class="tulip" style="top:0; left:80px;">🌷</div>
+        <div class="tulip" style="top:30px; left:40px;">🌷</div>
+        <div class="tulip" style="top:30px; left:120px;">🌷</div>
+        <div class="tulip" style="top:60px; left:10px;">🌷</div>
+        <div class="tulip" style="top:60px; left:150px;">🌷</div>
+        <div class="tulip" style="top:90px; left:70px;">🌷</div>
+        <div class="tulip" style="top:90px; left:120px;">🌷</div>
+        <div class="tulip" style="top:110px; left:40px;">🌷</div>
+        <div class="tulip" style="top:110px; left:100px;">🌷</div>
+    </div>
+
+    <button onclick="nextScreen(3)">Next 💕</button>
+</div>
+
+<!-- SCREEN 3 -->
+<div id="s3" class="screen">
+    <div class="message">
+        Surprise 💕<br><br>
+        I just really want to make you smile today.<br>
+        So here’s a tulip bouquet just for you 🌷<br>
+        Because you deserve something soft and sweet… just like you. ❤️
+    </div>
+
+    <!-- Link to lyric video starting at 3:27 -->
+    <a class="link-btn" href="https://www.youtube.com/watch?v=4u6HQCLW5VY&t=207s" target="_blank">
+        ▶ Play *Statue* (Lyrics) by Lil Eddie – Start at 3:27
+    </a>
+</div>
+
+<script>
+function nextScreen(num) {
+    document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+    document.getElementById("s" + num).classList.add("active");
+}
+</script>
+
+</body>
+</html>
